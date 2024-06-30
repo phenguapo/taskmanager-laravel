@@ -1,66 +1,103 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Laravel Task Management System
+This is a simple task management system built with Laravel. It allows users to create, edit, delete, and mark tasks as completed. Additionally, the application includes a dark mode feature that users can toggle.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+### Features
+- Create new tasks
+- Edit existing tasks
+- Delete tasks
+- Mark tasks as completed
+- Toggle dark mode
 
-## About Laravel
+### Requirements
+- PHP >= 7.3
+- Composer
+- Laravel 8.x
+- MySQL or other database supported by Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Installation
+1. Clone the repository:
+```bash
+git clone https://github.com/your-username/laravel-task-management-system.git
+cd laravel-task-management-system
+```
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+2. Install dependencies:
+```bash
+composer install
+```
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+3. Set up the environment:
+    - Copy the .env.example file to .env:
+    ```bash
+    cp .env.example .env
+    ```
 
-## Learning Laravel
+    - Update the .env file with your database credentials:
+    ```dotenv
+    Copy code
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=your_database_name
+    DB_USERNAME=your_database_username
+    DB_PASSWORD=your_database_password
+    ```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+4. Generate an application key:
+```
+bash
+php artisan key:generate
+```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+5. Run the database migrations:
+```
+bash
+php artisan migrate
+```
+6. Serve the application:
+```
+bash
+Copy code
+php artisan serve
+```
+The application will be available at http://localhost:8000.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Usage
+#### Creating a Task
+1. Click on the "Create Task!" button.
+2. Fill out the form with the task title and description.
+3. Click "Submit" to save the task.
 
-## Laravel Sponsors
+#### Editing a Task
+1. Click on the "Edit" button next to the task you want to edit.
+2. Update the task information.
+3. Click "Update" to save the changes.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+#### Deleting a Task
+1. Click on the "Delete" (trash bin) button next to the task you want to delete.
 
-### Premium Partners
+#### Marking a Task as Completed
+1. Click on the "Yes/No" button in the "Completed" column next to the task you want to mark as completed.
+2. The status will toggle between "Yes" (completed) and "No" (not completed).
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+#### Toggling Dark Mode
+1. Click on the "Dark Mode" button at the bottom of the page to enable dark mode.
+2. Click on the "Light Mode" button to disable dark mode.
 
-## Contributing
+### File Structure
+- app/Http/Controllers/TasksController.php: Handles the task management logic.
+- app/Models/Task.php: The Task model.
+- database/migrations/: Contains the database migration files.
+- resources/views/tasks/: Contains the Blade templates for the task views.
+    - index.blade.php: Displays the list of tasks.
+    - create.blade.php: Form to create a new task.
+    - edit.blade.php: Form to edit an existing task.
+### Troubleshooting
+- Ensure your .env file is properly configured.
+- Run php artisan migrate:status to check the status of your migrations.
+- Check the Laravel log files (storage/logs/laravel.log) for any errors.
+### Contributing
+If you find any issues or have suggestions for improvements, feel free to open an issue or submit a pull request.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+License
+This project is licensed under the MIT License. See the LICENSE file for details.
